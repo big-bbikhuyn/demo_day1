@@ -1,4 +1,3 @@
-// Hiệu ứng typing cho phần giới thiệu cá nhân
 document.addEventListener("DOMContentLoaded", function () {
     const intro = "Xin chào! Tôi là Lê Anh Tuấn, một lập trình viên đam mê công nghệ và sáng tạo.";
     const introElement = document.getElementById("intro-text");
@@ -13,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 introElement.textContent = "";
                 i = 0;
-                setTimeout(typeEffect, 500); // Đợi 0.5s rồi bắt đầu lại
-            }, 5000); // Lặp lại sau 5 giây
+                setTimeout(typeEffect, 500);
+            }, 5000);
         }
     }
     if (introElement) {
