@@ -1,0 +1,245 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #232526, #0f2027, #2c5364, #00eaff 90%);
+    min-height: 100vh;
+    animation: bgMove 10s infinite alternate;
+    background-size: 200% 200%;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.navbar {
+    background: rgba(20, 20, 30, 0.95);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 16px #00eaff33;
+}
+
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #00eaff, 0 0 2px #fff;
+    transition: text-shadow 0.3s;
+}
+
+.navbar .logo:hover {
+    text-shadow: 0 0 16px #00eaff, 0 0 8px #fff;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 4px #00eaff99;
+}
+
+.navbar .nav-links li a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff, 0 0 2px #fff;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(20, 20, 30, 0.98);
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px #00eaff33;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 28px;
+        color: #fff;
+        text-shadow: 0 0 8px #00eaff;
+    }
+}
+
+.navbar .hamburger {
+    display: none;
+}
+
+/* Glassmorphism container */
+.container {
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    margin-top: 100px;
+    max-width: 600px;
+    padding: 32px 24px;
+    border-radius: 18px;
+    transition: box-shadow 0.3s;
+}
+
+.container:hover {
+    box-shadow: 0 0 40px #00eaff99, 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+h1 {
+    color: #fff;
+    text-shadow: 0 0 16px #00eaff, 0 0 2px #fff;
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 8px #00eaff, 0 0 2px #fff; }
+    to { text-shadow: 0 0 24px #00eaff, 0 0 8px #fff; }
+}
+
+h2 {
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff, 0 0 2px #fff;
+    margin-bottom: 10px;
+}
+
+ul {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    list-style: disc inside;
+}
+
+.button {
+    background: linear-gradient(90deg, #00eaff 0%, #2c5364 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 20px 0 #00eaff80, 0 1.5px 4px 0 #0002;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    left: -75%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #fff6, transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+}
+
+.button:hover::after {
+    left: 120%;
+}
+
+.button:hover {
+    background: linear-gradient(90deg, #2c5364 0%, #00eaff 100%);
+    color: #222;
+    box-shadow: 0 0 40px #00eaff80, 0 1.5px 4px 0 #0002;
+    transform: scale(1.07) rotate(-1deg);
+}
+
+.button.clicked {
+    animation: clickPop 0.4s;
+}
+
+@keyframes clickPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.13) rotate(2deg);}
+    100% { transform: scale(1); }
+}
+
+#intro-text {
+    color: #fff;
+    text-shadow: 0 0 8px #00eaff99;
+    font-size: 1.2rem;
+    min-height: 48px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+}
+/* ...existing code... */
+
+/* Hamburger luôn nằm góc phải trên cùng khi mobile */
+@media (max-width: 768px) {
+    .navbar .container {
+        position: relative;
+    }
+    .navbar .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100;
+        font-size: 32px;
+        color: #00eaff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(20, 20, 30, 0.98);
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px #00eaff33;
+    }
+    .navbar .nav-links.active {
+        display: flex;
+    }
+}
